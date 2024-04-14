@@ -17,7 +17,7 @@ texture_filter = 1
 position = Vector2(101, 103)
 
 [node name="Bat" parent="." instance=ExtResource("14_vvhjg")]
-position = Vector2(171, 197)
+position = Vector2(145, 245)
 
 [node name="Bat2" parent="." instance=ExtResource("14_vvhjg")]
 position = Vector2(325, 53)

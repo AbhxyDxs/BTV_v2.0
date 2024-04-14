@@ -288,9 +288,6 @@ position = Vector2(58, 35)
 [node name="Coin Area2D10" parent="Coins" instance=ExtResource("7_y1fkj")]
 position = Vector2(-6, 217)
 
-[node name="Bat" parent="." instance=ExtResource("14_7oq55")]
-position = Vector2(119, 227)
-
 [node name="Bat2" parent="." instance=ExtResource("14_7oq55")]
 position = Vector2(353, 230)
 

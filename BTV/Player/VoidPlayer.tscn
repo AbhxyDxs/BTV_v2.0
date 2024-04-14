@@ -984,7 +984,7 @@ parameters/Run/blend_position = Vector2(0, 1)
 
 [node name="hit_pivot" type="Marker2D" parent="."]
 position = Vector2(-1, -8)
-rotation = 4.71239
+rotation = 1.5708
 
 [node name="sword_hitbox" type="Area2D" parent="hit_pivot"]
 position = Vector2(17, 0)

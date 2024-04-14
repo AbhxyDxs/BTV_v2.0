@@ -3,6 +3,8 @@ extends CanvasLayer
 const HEART_ROW_SIZE = 8
 const HEART_OFFSET = 16
 
+var pause_menu = load("res://PauseMenu.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in Player_Data.Health:
@@ -30,8 +32,6 @@ func _process(_delta):
 			heart.frame = (Player_Data.Health - Last_Heart) * 4
 		if index < Last_Heart:
 			heart.frame = 4
-
-
 
 
 
