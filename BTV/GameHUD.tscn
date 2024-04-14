@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://4ym5ic32kqsw"]
+
+[ext_resource type="Script" path="res://UI/GUI.gd" id="1_cn86u"]
+[ext_resource type="Texture2D" uid="uid://brr6m6bflhhii" path="res://UI/VoidGuy-Head UI.png" id="2_kjcyq"]
+[ext_resource type="Texture2D" uid="uid://cfdbwevssm0ld" path="res://UI/HeartSpriteSheet.png" id="3_f0oxb"]
+[ext_resource type="Texture2D" uid="uid://4sjxsynobjis" path="res://Coin/CoinSprite.png" id="4_lspr3"]
+[ext_resource type="FontFile" uid="uid://cjb665uclhon4" path="res://UI/Fonts/Pixelfy.ttf" id="5_rwnmh"]
+[ext_resource type="PackedScene" uid="uid://dm6q0abakck7u" path="res://JS/Scenes/joystick.tscn" id="6_00vmk"]
+[ext_resource type="Texture2D" uid="uid://bqohfif6b2mi2" path="res://UI/Sword.png" id="7_luhyp"]
+[ext_resource type="Texture2D" uid="uid://d1qemmdxjh04x" path="res://UI/Keys/Left.png" id="8_rypfw"]
+[ext_resource type="Texture2D" uid="uid://duibok1xhyeia" path="res://UI/Keys/Right (2).png" id="9_pf61p"]
+[ext_resource type="Texture2D" uid="uid://cdpcb8ilomcvj" path="res://UI/Keys/Up.png" id="10_e0778"]
+[ext_resource type="Texture2D" uid="uid://dr1eyi1m3m71t" path="res://UI/Keys/Down.png" id="11_r5o3y"]
+[ext_resource type="Texture2D" uid="uid://2w04s0ennc6k" path="res://UI/Keys/Attack.png" id="12_i88hv"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_cn86u")
+
+[node name="PlayerHead" type="Sprite2D" parent="."]
+position = Vector2(20, 25)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_kjcyq")
+
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(39, 29)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_f0oxb")
+hframes = 5
+
+[node name="CoinCount" type="Sprite2D" parent="."]
+position = Vector2(20, 49)
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("4_lspr3")
+hframes = 8
+
+[node name="CoinCount Label" type="Label" parent="."]
+offset_left = 33.0
+offset_top = 39.0
+offset_right = 65.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("5_rwnmh")
+
+[node name="Joystick" parent="." instance=ExtResource("6_00vmk")]
+position = Vector2(42, 141)
+scale = Vector2(1.2, 1.2)
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Joystick"]
+position = Vector2(178.333, -13.3333)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("7_luhyp")
+action = "Attack"
+
+[node name="Keys" type="Node2D" parent="."]
+visible = false
+
+[node name="Left" type="Button" parent="Keys"]
+offset_left = 10.0
+offset_top = 124.0
+offset_right = 155.0
+offset_bottom = 269.0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("8_rypfw")
+flat = true
+
+[node name="Right" type="Button" parent="Keys"]
+offset_left = 68.0
+offset_top = 123.0
+offset_right = 213.0
+offset_bottom = 268.0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("9_pf61p")
+flat = true
+
+[node name="Up" type="Button" parent="Keys"]
+offset_left = 39.0
+offset_top = 103.0
+offset_right = 184.0
+offset_bottom = 248.0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("10_e0778")
+flat = true
+
+[node name="Down" type="Button" parent="Keys"]
+offset_left = 39.0
+offset_top = 143.0
+offset_right = 184.0
+offset_bottom = 288.0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("11_r5o3y")
+flat = true
+
+[node name="Attack" type="Button" parent="Keys"]
+offset_left = 257.0
+offset_top = 117.0
+offset_right = 402.0
+offset_bottom = 262.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("12_i88hv")
+flat = true
+
+[connection signal="pressed" from="Keys/Left" to="." method="_on_left_pressed"]

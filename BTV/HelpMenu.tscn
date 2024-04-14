@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce8slck0rve51"]
+
+[ext_resource type="Script" path="res://HelpMenu.gd" id="1_4r44g"]
+[ext_resource type="FontFile" uid="uid://dgbp8xu1yh8bk" path="res://UI/Fonts/DePixelHalbfett.ttf" id="2_xrcoj"]
+[ext_resource type="FontFile" uid="uid://cjb665uclhon4" path="res://UI/Fonts/Pixelfy.ttf" id="3_oxxb8"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_2w3f6"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_63n6f"]
+
+[node name="HelpMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4r44g")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.054902, 0.160784, 0.329412, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.517647, 0.654902, 0.631373, 1)
+theme_override_colors/font_shadow_color = Color(0.054902, 0.254902, 0.329412, 1)
+theme_override_fonts/font = ExtResource("2_xrcoj")
+text = "BEYOND THE VOID"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HowToPlayB" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.517647, 0.654902, 0.631373, 1)
+theme_override_colors/font_pressed_color = Color(0.180392, 0.541176, 0.6, 1)
+theme_override_fonts/font = ExtResource("3_oxxb8")
+text = "HOW TO PLAY"
+icon = SubResource("ImageTexture_2w3f6")
+icon_alignment = 1
+
+[node name="ControlHelpB" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = 23.0
+offset_right = 32.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.517647, 0.654902, 0.631373, 1)
+theme_override_colors/font_pressed_color = Color(0.180392, 0.541176, 0.6, 1)
+theme_override_fonts/font = ExtResource("3_oxxb8")
+text = "CONTROLS"
+icon = SubResource("ImageTexture_2w3f6")
+icon_alignment = 1
+
+[node name="BackB" type="Button" parent="."]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 112.0
+offset_right = 302.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0.517647, 0.654902, 0.631373, 1)
+theme_override_colors/font_pressed_color = Color(0.180392, 0.541176, 0.6, 1)
+theme_override_fonts/font = ExtResource("3_oxxb8")
+text = "<"
+icon = SubResource("ImageTexture_63n6f")
+icon_alignment = 1
+
+[connection signal="pressed" from="HowToPlayB" to="." method="_on_how_to_play_b_pressed"]
+[connection signal="pressed" from="ControlHelpB" to="." method="_on_control_help_b_pressed"]
+[connection signal="pressed" from="BackB" to="." method="_on_back_b_pressed"]

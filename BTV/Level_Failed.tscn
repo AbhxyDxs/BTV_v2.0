@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=3 uid="uid://clq81ft18bmqu"]
+
+[ext_resource type="Script" path="res://Level_Failed.gd" id="1_epcn8"]
+[ext_resource type="FontFile" uid="uid://dgbp8xu1yh8bk" path="res://UI/Fonts/DePixelHalbfett.ttf" id="2_12oq0"]
+[ext_resource type="Texture2D" uid="uid://b0osf8xoskhcn" path="res://Player/Void-Player/VoidPlayer-Full.png" id="3_npvhn"]
+[ext_resource type="FontFile" uid="uid://cjb665uclhon4" path="res://UI/Fonts/Pixelfy.ttf" id="4_yjgr2"]
+
+[sub_resource type="Animation" id="Animation_nal1q"]
+resource_name = "Failed"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [189, 190, 191, 184, 185, 186, 187]
+}
+
+[sub_resource type="Animation" id="Animation_ejs3x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [190]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lfgml"]
+_data = {
+"Failed": SubResource("Animation_nal1q"),
+"RESET": SubResource("Animation_ejs3x")
+}
+
+[node name="Level_Failed" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_epcn8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.054902, 0.160784, 0.329412, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.517647, 0.654902, 0.631373, 1)
+theme_override_colors/font_shadow_color = Color(0.054902, 0.254902, 0.329412, 1)
+theme_override_fonts/font = ExtResource("2_12oq0")
+text = "LEVEL FAILED!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(161, 81)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("3_npvhn")
+hframes = 9
+vframes = 24
+frame = 190
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+autoplay = "Failed"
+libraries = {
+"": SubResource("AnimationLibrary_lfgml")
+}
+
+[node name="RestartB" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 123.0
+offset_top = 107.0
+offset_right = 201.0
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.517647, 0.654902, 0.631373, 1)
+theme_override_fonts/font = ExtResource("4_yjgr2")
+text = "RESTART"
+icon_alignment = 1
+
+[node name="BackB" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 124.0
+offset_top = 140.0
+offset_right = 201.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.517647, 0.654902, 0.631373, 1)
+theme_override_fonts/font = ExtResource("4_yjgr2")
+text = "MAIN MENU"
+icon_alignment = 1
+
+[connection signal="pressed" from="RestartB" to="." method="_on_restart_b_pressed"]
+[connection signal="pressed" from="BackB" to="." method="_on_back_b_pressed"]

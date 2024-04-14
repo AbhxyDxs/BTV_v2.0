@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://c651ljrnaup15"]
+
+[ext_resource type="Texture2D" uid="uid://b0hnf4j0xddy3" path="res://Effects/EnemyDeathEffect2.png" id="1_64bpe"]
+
+[sub_resource type="Animation" id="Animation_okc3s"]
+resource_name = "Death_Blast"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_ilge6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6jk47"]
+_data = {
+"Death_Blast": SubResource("Animation_okc3s"),
+"RESET": SubResource("Animation_ilge6")
+}
+
+[node name="Dead_FX" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_64bpe")
+hframes = 11
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Death_Blast"
+libraries = {
+"": SubResource("AnimationLibrary_6jk47")
+}

@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://x0nr64e8sq71"]
+
+[ext_resource type="Script" path="res://ControlsMenu.gd" id="1_8nivh"]
+[ext_resource type="FontFile" uid="uid://dgbp8xu1yh8bk" path="res://UI/Fonts/DePixelHalbfett.ttf" id="2_bq022"]
+[ext_resource type="Texture2D" uid="uid://d3n0vxk14ti3v" path="res://UI/Keys/ArrowKeys.png" id="3_7uwfg"]
+[ext_resource type="FontFile" uid="uid://cjb665uclhon4" path="res://UI/Fonts/Pixelfy.ttf" id="3_e6a1k"]
+[ext_resource type="Texture2D" uid="uid://bak887txaq1nn" path="res://UI/Keys/WASDKeys.png" id="4_y5tq2"]
+[ext_resource type="Texture2D" uid="uid://4uwpoev8jxkw" path="res://UI/Keys/SpaceKey.png" id="5_407gm"]
+[ext_resource type="Texture2D" uid="uid://d1xtlstj03si0" path="res://UI/Keys/MouseClick.png" id="6_vbsyw"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_63n6f"]
+
+[node name="ControlsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8nivh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.054902, 0.160784, 0.329412, 1)
+
+[node name="BackB" type="Button" parent="."]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 112.0
+offset_right = 302.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0.517647, 0.654902, 0.631373, 1)
+theme_override_colors/font_pressed_color = Color(0.180392, 0.541176, 0.6, 1)
+theme_override_fonts/font = ExtResource("3_e6a1k")
+text = "<"
+icon = SubResource("ImageTexture_63n6f")
+icon_alignment = 1
+
+[node name="ControlsLabel" type="Label" parent="."]
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.517647, 0.654902, 0.631373, 1)
+theme_override_colors/font_shadow_color = Color(0.054902, 0.254902, 0.329412, 1)
+theme_override_fonts/font = ExtResource("2_bq022")
+text = "CONTROLS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MovementsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 69.0
+offset_right = 108.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0.517647, 0.654902, 0.631373, 1)
+theme_override_fonts/font = ExtResource("3_e6a1k")
+text = "MOVEMENT"
+
+[node name="AttackLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 69.0
+offset_right = 260.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0.517647, 0.654902, 0.631373, 1)
+theme_override_fonts/font = ExtResource("3_e6a1k")
+text = "ATTACK"
+
+[node name="ArrowKeys" type="Sprite2D" parent="."]
+position = Vector2(95, 122)
+texture = ExtResource("3_7uwfg")
+
+[node name="WASD" type="Sprite2D" parent="."]
+position = Vector2(47, 122)
+texture = ExtResource("4_y5tq2")
+
+[node name="SpaceKey" type="Sprite2D" parent="."]
+position = Vector2(199, 126)
+texture = ExtResource("5_407gm")
+
+[node name="MouseClick" type="Sprite2D" parent="."]
+position = Vector2(222, 124)
+texture = ExtResource("6_vbsyw")
+
+[connection signal="pressed" from="BackB" to="." method="_on_back_b_pressed"]
