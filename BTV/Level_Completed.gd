@@ -22,7 +22,7 @@ func _on_next_b_pressed():
 
 	# Load the next level
 	var nextLevel = previousLevel + 1
-	if nextLevel <= 5:  # Assuming you have a total of 5 levels
+	if nextLevel <= 10:  # Assuming you have a total of 5 levels
 		# Load the next level scene
 		get_tree().change_scene_to_file("res://Level" + str(nextLevel) + ".tscn")
 	else:

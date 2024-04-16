@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://b5hi2ut11vqc2"]
+
+[ext_resource type="Texture2D" uid="uid://creoypd8lkvdx" path="res://VoidAssets/Void-Grass.png" id="1_wipfv"]
+[ext_resource type="Texture2D" uid="uid://ckh42vksis0b7" path="res://VoidAssets/Void-GrassEffect.png" id="2_mj3j3"]
+
+[sub_resource type="GDScript" id="GDScript_phib7"]
+script/source = "extends Node2D
+
+var grass_kill = false
+
+func _on_animated_sprite_2d_animation_finished():
+	queue_free()
+
+
+func _physics_process(_delta):
+	if grass_kill == true and Input.is_action_just_released(\"Attack\"):
+		$AnimatedSprite2D.play(\"GrassCut\")
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ucvd"]
+atlas = ExtResource("2_mj3j3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8oxh3"]
+atlas = ExtResource("2_mj3j3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjscf"]
+atlas = ExtResource("2_mj3j3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lgjo"]
+atlas = ExtResource("2_mj3j3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kdjx"]
+atlas = ExtResource("2_mj3j3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oiysj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wipfv")
+}],
+"loop": true,
+"name": &"Grass",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ucvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oxh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjscf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lgjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kdjx")
+}],
+"loop": false,
+"name": &"GrassCut",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cij1"]
+size = Vector2(14, 14)
+
+[node name="Grass" type="Node2D"]
+script = SubResource("GDScript_phib7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oiysj")
+animation = &"Grass"
+autoplay = "Grass"
+centered = false
+offset = Vector2(-8, -8)
+
+[node name="Grass_Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass_Area2D"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_6cij1")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
