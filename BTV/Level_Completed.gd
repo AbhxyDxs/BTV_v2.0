@@ -27,6 +27,7 @@ func _on_next_b_pressed():
 		get_tree().change_scene_to_file("res://Level" + str(nextLevel) + ".tscn")
 	else:
 		# You've completed all levels, handle accordingly
+		get_tree().change_scene_to_file("res://Game_Completed.tscn")
 		print("Game completed!")
 
 	# Reset previous level
