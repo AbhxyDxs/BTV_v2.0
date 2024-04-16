@@ -47,9 +47,8 @@ func move_state(delta):
 	axis.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
 	axis = axis.normalized()
 
-
 	#For Touchscreen
-#	axis = joystick.posVector
+	#axis = joystick.posVector
 
 
 	if axis == Vector2.ZERO:

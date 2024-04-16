@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://338rx5hmu1cl"]
+[gd_scene load_steps=13 format=3 uid="uid://338rx5hmu1cl"]
 
 [ext_resource type="Texture2D" uid="uid://nrh7u54hhhk3" path="res://VoidAssets/Void-GrassBackground.png" id="1_xiyau"]
 [ext_resource type="PackedScene" uid="uid://dhu3gygf8jlfb" path="res://World/tile_bocks.tscn" id="2_kcf1q"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://de47vcqafdvkm" path="res://World/grass.tscn" id="7_jui11"]
 [ext_resource type="PackedScene" uid="uid://djofa0obpkeeq" path="res://Coin/Coin.tscn" id="8_j7rh4"]
 [ext_resource type="PackedScene" uid="uid://4ym5ic32kqsw" path="res://GameHUD.tscn" id="9_mk5gm"]
+[ext_resource type="PackedScene" uid="uid://6lkrarq10hbs" path="res://Enemies/bat.tscn" id="10_h6ekh"]
+[ext_resource type="PackedScene" uid="uid://gd57ir1s4pok" path="res://Enemies/WalkingEnemy/walking_enemy.tscn" id="11_8leqd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jgeti"]
 resource_local_to_scene = true
@@ -16,7 +18,7 @@ shader = ExtResource("5_cvrsy")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_modifier = 0.0
 
-[node name="Level 0" type="Node2D"]
+[node name="Level 6" type="Node2D"]
 y_sort_enabled = true
 texture_filter = 1
 position = Vector2(101, 103)
@@ -31,14 +33,15 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 640)
 
-[node name="TileBocks" parent="." instance=ExtResource("2_kcf1q")]
-layer_0/tile_data = PackedInt32Array(0, 262144, 0, 65536, 196608, 2, 9, 131072, 0, 8, 393216, 0, 7, 0, 3, 65544, 0, 2, 65545, 131072, 2, 196613, 262144, 0, 196614, 131072, 3, 327684, 131072, 2, 327683, 0, 3, 262149, 458752, 3, 262148, 262144, 0, -131075, 0, 0, -65539, 0, 1, -3, 0, 1, 65533, 0, 1, 131069, 0, 1, 196605, 0, 1, 262141, 0, 1, 327677, 0, 1, 393213, 0, 1, 458749, 0, 1, 524285, 0, 1, 589821, 0, 2, 589822, 65536, 2, 589823, 65536, 2, 524288, 65536, 2, 524289, 65536, 2, 524290, 65536, 2, 524291, 65536, 2, 524292, 65536, 2, 524293, 65536, 2, 524294, 65536, 2, 524295, 65536, 2, 524296, 65536, 2, 524297, 65536, 2, 524298, 65536, 2, 524299, 131072, 2, 458763, 131072, 1, 393227, 131072, 1, 327691, 131072, 1, 262155, 131072, 1, 196619, 131072, 1, 131083, 131072, 1, 65547, 131072, 1, 11, 131072, 1, -65525, 131072, 1, -131061, 131072, 1, -196597, 131072, 0, -196598, 65536, 0, -196599, 65536, 0, -196600, 65536, 0, -196601, 65536, 0, -196602, 65536, 0, -196603, 65536, 0, -196604, 65536, 0, -196605, 65536, 0, -196606, 65536, 0, -196607, 65536, 0, -196608, 65536, 0, -131073, 65536, 0, -131074, 65536, 0, 1, 65536, 2, 2, 131072, 2, -65534, 131072, 0, -65535, 0, 0)
-
 [node name="TileSand" parent="." instance=ExtResource("3_frh2t")]
+position = Vector2(-15, 31)
 layer_0/tile_data = PackedInt32Array(524289, 0, 0, 524290, 65536, 0, 524291, 65536, 0, 524292, 458752, 2, 589828, 131072, 2, 589827, 65536, 2, 589826, 327680, 1, 589825, 0, 1, 458756, 262144, 0, 458757, 65536, 3, 458758, 393216, 3, 458759, 131072, 2, 393223, 131072, 1, 327687, 131072, 0, 327686, 0, 0, 393222, 0, 1, 327695, 393216, 0, 393231, 0, 1, 458767, 0, 1, 524303, 0, 1, 589839, 0, 2, 327693, 0, 2, 327694, 327680, 3, 327682, 3, 0, 393218, 3, 1, 327683, 65539, 0, 393219, 65539, 1, 655360, 1, 0, 655361, 0, 1, 655372, 1, 0, 655373, 65537, 0, 524304, 327680, 2, 524305, 65536, 0, 524306, 65536, 0, 524307, 65536, 0, 589843, 65536, 2, 589842, 65536, 2, 589841, 65536, 2, 589840, 65536, 2, 524308, 131072, 0, 589844, 131072, 2, 327696, 131072, 0, 393232, 131072, 1, 458768, 131072, 1, 65544, 65536, 0, 65545, 65536, 0, 131078, 0, 2, 131079, 65536, 2, 131080, 65536, 2, 131081, 65536, 2, 131082, 65536, 2, 131083, 65536, 2, 65546, 65536, 0, 65547, 65536, 0, 65548, 131072, 0, 131084, 327680, 3, 131085, 393216, 0, 196621, 0, 1, 262157, 0, 1, 720897, 0, 2, 720898, 131072, 2, 655362, 131072, 1, 131086, 131072, 0, 196622, 131072, 1, 262158, 131072, 1, 65543, 65536, 0, 65542, 0, 0)
 
+[node name="TileBocks" parent="." instance=ExtResource("2_kcf1q")]
+layer_0/tile_data = PackedInt32Array(-131075, 0, 0, -65539, 0, 1, -3, 0, 1, 65533, 0, 1, 131069, 0, 1, 196605, 0, 1, 262141, 0, 1, 327677, 0, 1, 393213, 0, 1, 458749, 0, 1, 524285, 0, 1, 589821, 0, 2, 589822, 65536, 2, 589823, 65536, 2, 524288, 65536, 2, 524289, 65536, 2, 524290, 65536, 2, 524291, 65536, 2, 524292, 65536, 2, 524293, 65536, 2, 524294, 65536, 2, 524295, 65536, 2, 524296, 65536, 2, 524297, 65536, 2, 524298, 65536, 2, 524299, 131072, 2, 458763, 131072, 1, 393227, 131072, 3, 327691, 131072, 1, 262155, 131072, 1, 196619, 131072, 1, 131083, 131072, 1, 65547, 131072, 1, 11, 131072, 1, -65525, 131072, 1, -131061, 131072, 1, -196597, 131072, 0, -196598, 65536, 0, -196599, 65536, 0, -196600, 65536, 0, -196601, 65536, 0, -196602, 65536, 0, -196603, 65536, 0, -196604, 65536, 0, -196605, 65536, 0, -196606, 65536, 0, -196607, 65536, 0, -196608, 65536, 0, -131073, 65536, 0, -131074, 65536, 0, 262148, 0, 0, 327684, 0, 1, 393220, 0, 2, 262149, 65536, 0, 327685, 65536, 1, 393221, 65536, 2, 262150, 131072, 0, 327686, 131072, 1, 393222, 131072, 2, -65529, 0, 0, 7, 0, 1, 65543, 0, 2, -65528, 65536, 0, 8, 65536, 1, 65544, 65536, 2, -65527, 131072, 0, 9, 131072, 1, 65545, 131072, 2, 0, 196608, 0, 65536, 196608, 1, 131072, 196608, 2, 327682, 196608, 3, 327679, 196608, 3, 393225, 0, 3, 393226, 65536, 3)
+
 [node name="Player" parent="." instance=ExtResource("4_p4t64")]
-position = Vector2(46, 52)
+position = Vector2(109, 180)
 
 [node name="Sprite2D" parent="Player" index="0"]
 material = SubResource("ShaderMaterial_jgeti")
@@ -148,10 +151,10 @@ position = Vector2(145, 112)
 position = Vector2(113, 145)
 
 [node name="Grass6" parent="Grass" instance=ExtResource("7_jui11")]
-position = Vector2(160, 158)
+position = Vector2(225, 188)
 
 [node name="Grass7" parent="Grass" instance=ExtResource("7_jui11")]
-position = Vector2(177, 158)
+position = Vector2(223, 146)
 
 [node name="Grass8" parent="Grass" instance=ExtResource("7_jui11")]
 position = Vector2(263, 63)
@@ -196,7 +199,7 @@ position = Vector2(18, -33)
 position = Vector2(211, -11)
 
 [node name="Grass20" parent="Grass" instance=ExtResource("7_jui11")]
-position = Vector2(227, -15)
+position = Vector2(209, -24)
 
 [node name="Grass21" parent="Grass" instance=ExtResource("7_jui11")]
 position = Vector2(350, -56)
@@ -258,23 +261,41 @@ position = Vector2(-10, 13)
 position = Vector2(-10, 27)
 
 [node name="Coin Area2D5" parent="Coins" instance=ExtResource("8_j7rh4")]
-position = Vector2(106, 153)
+position = Vector2(-45, 254)
 
 [node name="Coin Area2D6" parent="Coins" instance=ExtResource("8_j7rh4")]
-position = Vector2(87, 168)
+position = Vector2(70, 196)
 
 [node name="Coin Area2D7" parent="Coins" instance=ExtResource("8_j7rh4")]
-position = Vector2(167, 181)
+position = Vector2(232, 205)
 
 [node name="Coin Area2D8" parent="Coins" instance=ExtResource("8_j7rh4")]
 position = Vector2(231, 105)
 
 [node name="Coin Area2D9" parent="Coins" instance=ExtResource("8_j7rh4")]
-position = Vector2(249, 39)
+position = Vector2(218, 25)
 
 [node name="Coin Area2D10" parent="Coins" instance=ExtResource("8_j7rh4")]
 position = Vector2(327, 39)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_mk5gm")]
+
+[node name="Bat" parent="." instance=ExtResource("10_h6ekh")]
+position = Vector2(267, 223)
+
+[node name="Bat2" parent="." instance=ExtResource("10_h6ekh")]
+position = Vector2(199, 87)
+
+[node name="Bat3" parent="." instance=ExtResource("10_h6ekh")]
+position = Vector2(37, 64)
+
+[node name="WalkingEnemy" parent="." instance=ExtResource("11_8leqd")]
+position = Vector2(9, 226)
+
+[node name="WalkingEnemy2" parent="." instance=ExtResource("11_8leqd")]
+position = Vector2(292, 113)
+
+[node name="WalkingEnemy3" parent="." instance=ExtResource("11_8leqd")]
+position = Vector2(46, -7)
 
 [editable path="Player"]
